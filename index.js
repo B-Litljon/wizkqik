@@ -1,33 +1,33 @@
 //-QUESTIONS-//
 var questions = [
     { 
-    question: 'test', 
-    choices: [1,2,3,4],
+    question: 'test1', 
+    options: [1,2,3,4],
     answer: 1   //1 is just a placeholder for the answer for now 
     },
     { 
-        question: 'test', 
-        choices: [1,2,3,4],
+        question: 'test2', 
+        options: [1,2,3,4],
         answer: 1   //1 is just a placeholder for the answer for now 
     },
     { 
-        question: 'test', 
-        choices: [1,2,3,4],
+        question: 'test3', 
+        options: [1,2,3,4],
         answer: 1   //1 is just a placeholder for the answer for now 
     },
     { 
-        question: 'test', 
-        choices: [1,2,3,4],
+        question: 'test4', 
+        options: [1,2,3,4],
         answer: 1   //1 is just a placeholder for the answer for now 
     },
     { 
-        question: 'test', 
-        choices: [1,2,3,4],
+        question: 'test5', 
+        options: [1,2,3,4],
         answer: 1   //1 is just a placeholder for the answer for now 
     },
     { 
-        question: 'test', 
-        choices: [1,2,3,4],
+        question: 'test6', 
+        options: [1,2,3,4],
         answer: 1   //1 is just a placeholder for the answer for now 
     }
     
@@ -64,10 +64,11 @@ function generateQuestions(){
     QUIZ.append(h1El);
     //------------------------------------------------------------
     //-FOR LOOP TO GO THROUGH EACH ANSWER IN THE ARRAY-// 
-    //(broken because i did what teach said not to do by accident'never.repeat.yourself')
-    for(var i = 0; i < currentQuestion.choices.length; i++){
+    //(broken because i did what teach said not to do by accident:
+    //'never.repeat.yourself')
+    for(var i = 0; i < currentQuestion.options.length; i++){
         var liEl = document.createElement('li');   
-        liEl.textContent = currentQuestion.choices[i];
+        liEl.textContent = currentQuestion.options[i];
         choices.append(liEl);
     }
 }
@@ -76,14 +77,14 @@ function generateQuestions(){
 function check(event){
     console.log(questions[currentQuestionIndex].answer)
     // right answer =>
-    if(questions[currentQuestionIndex].answer == event.taget.innerText){
+    if(questions[currentQuestionIndex].answer == event.target.innerText){
         rightOrWrong.textContent = '';
         rightOrWrong.textContent = 'YOU RIGHT!!!'
-    }else {  //wrong answer
+    }else {  //wrong answer =>
         rightOrWrong.textContent = '';
-        rightOrWrong.textContent = 'CLOSE BUT NO CIGAR :(';
+        rightOrWrong.textContent = 'CLOSE BUT NO CIGAR ';
     }
-    currentQuestionsIndex++;
+    currentQuestionIndex++;
     generateQuestions();
 }
 startButton.addEventListener('click', generateQuestions);
